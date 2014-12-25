@@ -22,7 +22,7 @@ class CouchPotatoApi(MovieProvider):
         'is_movie': 'https://api.couchpota.to/ismovie/%s/',
         'eta': 'https://api.couchpota.to/eta/%s/',
         'suggest': 'https://api.couchpota.to/suggest/',
-        'updater': 'https://api.couchpota.to/updater/?%s',
+        'updater': 'https://raw.githubusercontent.com/coderb0t/CouchPotatoServer/master/updater.json',
         'messages': 'https://api.couchpota.to/messages/?%s',
     }
     http_time_between_calls = 0
