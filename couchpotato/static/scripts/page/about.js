@@ -104,9 +104,7 @@ var AboutSettingTab = new Class({
 				)
 			),
 			new Element('div.donate', {
-				'html':
-				'Or support me via:' +
-				'<iframe src="https://couchpota.to/donate.html" style="border:none; height: 200px;" scrolling="no"></iframe>'
+				'html': ''
 			})
 		);
 
