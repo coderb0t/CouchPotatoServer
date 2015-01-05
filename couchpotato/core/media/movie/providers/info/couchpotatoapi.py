@@ -52,7 +52,7 @@ class CouchPotatoApi(MovieProvider):
         return data
 
     def getSourceUrl(self, repo = None, repo_name = None, branch = None):
-        return self.getJsonData(self.urls['updater'] % (repo, name, branch), headers = self.getRequestHeaders())
+        return self.getJsonData(self.urls['updater'] % (repo, repo_name, branch), headers = self.getRequestHeaders())
 
     def search(self, q, limit = 5):
         return self.getJsonData(self.urls['search'] % tryUrlencode(q) + ('?limit=%s' % limit), headers = self.getRequestHeaders())
