@@ -22,7 +22,7 @@ class CouchPotatoApi(MovieProvider):
         'is_movie': 'https://api.couchpota.to/ismovie/%s/',
         'eta': 'https://api.couchpota.to/eta/%s/',
         'suggest': 'https://api.couchpota.to/suggest/',
-        'updater': 'https://raw.githubusercontent.com/coderb0t/CouchPotatoServer/master/updater.json',
+        'updater': 'https://raw.githubusercontent.com/%s/%s/%s/updater.json',
         'messages': 'https://api.couchpota.to/messages/?%s',
     }
     http_time_between_calls = 0
@@ -52,11 +52,7 @@ class CouchPotatoApi(MovieProvider):
         return data
 
     def getSourceUrl(self, repo = None, repo_name = None, branch = None):
-        return self.getJsonData(self.urls['updater'] % tryUrlencode({
-            'repo': repo,
-            'name': repo_name,
-            'branch': branch,
-        }), headers = self.getRequestHeaders())
+        return self.getJsonData(self.urls['updater'] % (repo, name, branch), headers = self.getRequestHeaders())
 
     def search(self, q, limit = 5):
         return self.getJsonData(self.urls['search'] % tryUrlencode(q) + ('?limit=%s' % limit), headers = self.getRequestHeaders())
