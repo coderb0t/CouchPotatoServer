@@ -66,7 +66,7 @@ config = [{
                 {
                     'name': 'retention',
                     'label': 'Usenet Retention',
-                    'default': 1500,
+                    'default': 2500,
                     'type': 'int',
                     'unit': 'days'
                 },
