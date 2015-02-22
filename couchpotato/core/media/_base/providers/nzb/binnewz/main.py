@@ -208,6 +208,12 @@ class Base(NZBProvider):
                             newsgroup = "alt.binaries.nl"
                         elif newsgroup == "abx":
                             newsgroup = "alt.binaries.x"
+                        elif newsgroup == "abdivxf":
+                            newsgroup = "alt.binaries.divx.french"
+                        elif newsgroup == "ab.aa":
+                            newsgroup = "alt.binaries.aa"
+                        elif newsgroup == "ab.insiderz":
+                            newsgroup = "alt.binaries.insiderz"
                         else:
                             log.error(u"Unknown BinnewZ newsgroup: " + newsgroup)
                             continue
