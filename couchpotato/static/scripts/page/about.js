@@ -82,13 +82,13 @@ var AboutSettingTab = new Class({
 					'text': 'Help support CouchPotato and save some money for yourself by signing up for an account at'
 				}),
 				new Element('a', {
-					'href': 'https://usenetserver.com/partners/?a_aid=couchpotato&a_bid=3f357c6f',
+					'href': 'https://usenetserver.com',
 					'target': '_blank',
 					'text': 'UsenetServer'
 				}),
 				new Element('span[text=or]'),
 				new Element('a', {
-					'href': 'http://www.newshosting.com/partners/?a_aid=couchpotato&a_bid=a0b022df',
+					'href': 'http://www.newshosting.com',
 					'target': '_blank',
 					'text': 'Newshosting'
 				}),
