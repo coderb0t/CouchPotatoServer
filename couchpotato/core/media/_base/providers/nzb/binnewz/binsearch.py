@@ -18,7 +18,7 @@ class BinSearch(NZBDownloader):
 
         for suffixURL in binSearchURLs:
             binSearchURL = "http://binsearch.info/?adv_age=&" + suffixURL
-                    
+
             binSearchSoup = BeautifulSoup( self.open(binSearchURL) )
 
             foundName = None
@@ -62,7 +62,7 @@ class BinSearch(NZBDownloader):
                     nzbid=nzb_id
                     age=tryInt(age)
                     return NZBPostURLSearchResult( self, nzbURL, postData, sizeInMegs, binSearchURL, age, nzbid )
-                
+
     def parseSize(self, size):
         size_gb = ['gb', 'gib','go']
         size_mb = ['mb', 'mib','mo']

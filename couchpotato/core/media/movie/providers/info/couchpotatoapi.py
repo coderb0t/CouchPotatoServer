@@ -22,7 +22,7 @@ class CouchPotatoApi(MovieProvider):
         'is_movie': 'https://api.couchpota.to/ismovie/%s/',
         'eta': 'https://api.couchpota.to/eta/%s/',
         'suggest': 'https://api.couchpota.to/suggest/',
-        'updater': 'https://raw.githubusercontent.com/%s/%s/%s/updater.json',
+	'updater': 'https://raw.githubusercontent.com/%s/%s/%s/updater.json',
         'messages': 'https://api.couchpota.to/messages/?%s',
     }
     http_time_between_calls = 0
@@ -40,8 +40,13 @@ class CouchPotatoApi(MovieProvider):
 
         addEvent('release.validate', self.validate)
 
+        addEvent('cp.api_call', self.call)
+
         addEvent('cp.source_url', self.getSourceUrl)
         addEvent('cp.messages', self.getMessages)
+
+    def call(self, url, **kwargs):
+        return self.getJsonData(url, headers = self.getRequestHeaders(), **kwargs)
 
     def getMessages(self, last_check = 0):
 

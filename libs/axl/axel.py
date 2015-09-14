@@ -1,7 +1,7 @@
 # axel.py
 #
 # Copyright (C) 2010 Adrian Cristea adrian dot cristea at gmail dotcom
-# Edits by Ruud Burger
+# Edits by coderb0t
 #
 # Based on an idea by Peter Thatcher, found on
 # http://www.valuedlessons.com/2008/04/events-in-python.html

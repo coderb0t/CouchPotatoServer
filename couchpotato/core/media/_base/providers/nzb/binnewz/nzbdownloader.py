@@ -8,20 +8,20 @@ class NZBDownloader(object):
 
     def __init__( self ):
         self.cj = cookielib.CookieJar()
-        self.opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj))        
+        self.opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj))
         self.lastRequestTime = None
-        
+
     def waitBeforeNextRequest(self):
         if self.lastRequestTime and self.lastRequestTime > ( time.mktime(time.localtime()) - 10):
             time.sleep( 10 )
         self.lastRequestTime = time.gmtime()
-        
+
     def open(self, request):
         self.waitBeforeNextRequest()
         return self.opener.open(request)
-        
+
 class NZBSearchResult(object):
-    
+
     def __init__(self, downloader, sizeInMegs, refererURL, age, nzbid):
         self.downloader = downloader
         self.refererURL = refererURL
@@ -40,17 +40,17 @@ class NZBSearchResult(object):
             f = gzip.GzipFile(fileobj=buf)
             return f.read()
         else:
-            return response.read()      
-        
+            return response.read()
+
     def getNZB(self):
-        pass          
-        
+        pass
+
 class NZBGetURLSearchResult( NZBSearchResult ):
 
     def __init__(self, downloader, nzburl, sizeInMegs, refererURL, age, nzbid):
         NZBSearchResult.__init__(self, downloader, sizeInMegs, refererURL, age, nzbid)
         self.nzburl = nzburl
-        
+
     def getNZB(self):
         request = urllib2.Request( self.nzburl )
         self.nzbdata = NZBSearchResult.readRequest( self, request )
@@ -62,7 +62,7 @@ class NZBPostURLSearchResult( NZBSearchResult ):
         NZBSearchResult.__init__(self, downloader, sizeInMegs, refererURL, age, nzbid)
         self.nzburl = nzburl
         self.postData = postData
-        
+
     def getNZB(self):
         request = urllib2.Request( self.nzburl, self.postData )
         self.nzbdata = NZBSearchResult.readRequest( self, request )
@@ -76,4 +76,3 @@ class NZBDataSearchResult( NZBSearchResult ):
 
     def getNZB(self):
         return self.nzbdata
-        
