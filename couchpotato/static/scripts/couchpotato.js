@@ -114,11 +114,11 @@
 				self.block.navigation = new BlockHeader(self, {}),
 				self.block.search = new BlockSearch(self, {}),
 				self.support = new Element('a.donate.icon-donate', {
-					'href': 'https://couchpota.to/support/',
-					'target': '_blank'
+					'href': '#',
+					'target': '_self'
 				}).grab(
 					new Element('span', {
-						'text': 'Donate'
+						'text': ''
 					})
 				),
 				self.block.more = new BlockMenu(self, {'button_class': 'icon-settings'})
