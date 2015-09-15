@@ -3,7 +3,7 @@ import shutil
 import traceback
 
 from couchpotato.core.event import addEvent, fireEvent
-from couchpotato.core.helpers.encoding import sp
+from couchpotato.core.helpers.encoding import sp, toUnicode
 from couchpotato.core.helpers.variable import getIdentifier, underscoreToCamel
 from couchpotato.core.logger import CPLog
 from couchpotato.core.media._base.providers.metadata.base import MetaDataBase
@@ -92,7 +92,7 @@ class MovieMetaData(MetaDataBase):
 
     def getRootName(self, data = None):
         if not data: data = {}
-        return os.path.join(data['destination_dir'], data['filename'])
+        return toUnicode(os.path.join(data['destination_dir'], data['filename']))
 
     def getFanartName(self, name, root, i):
         return
